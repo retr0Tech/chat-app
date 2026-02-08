@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "/Kg7SlV88o0=",
+  "success": true,
+  "projectFilePath": "/Users/retr0Tech/Projects/chat-app/apps/backend/ChatApp.Api/ChatApp.Api/ChatApp.Api.csproj",
+  "expectedPackageFiles": [
+    "/Users/retr0Tech/.nuget/packages/microsoft.aspnetcore.openapi/10.0.0-preview.3.25172.1/microsoft.aspnetcore.openapi.10.0.0-preview.3.25172.1.nupkg.sha512",
+    "/Users/retr0Tech/.nuget/packages/microsoft.openapi/2.0.0-preview.11/microsoft.openapi.2.0.0-preview.11.nupkg.sha512"
+  ],
+  "logs": []
+}

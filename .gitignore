@@ -1,0 +1,30 @@
+# Node
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# dotenv
+.env
+.env.*
+
+# Build outputs
+frontend/build
+backend/ChatApp.Api/obj
+backend/ChatApp.Api/bin
+backend/ChatApp.Bot/obj
+backend/ChatApp.Bot/bin
+backend/ChatApp.Domain/obj
+backend/ChatApp.Domain/bin
+backend/ChatApp.Infrastructure/obj
+backend/ChatApp.Infrastructure/bin
+backend/ChatApp.Tests/obj
+backend/ChatApp.Tests/bin
+
+# Editor junk
+.vscode/
+.idea/
+.DS_Store
+
+# OS
+Thumbs.db
