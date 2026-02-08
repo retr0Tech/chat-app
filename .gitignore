@@ -11,7 +11,13 @@ yarn-error.log*
 # Build outputs
 **/bin/
 **/obj/
+**/bin\\*/
 apps/frontend/build/
+
+# SQLite
+*.db
+*.db-shm
+*.db-wal
 
 # Editor junk
 .vscode/
