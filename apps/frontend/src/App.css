@@ -1,38 +1,123 @@
-.App {
-  text-align: center;
-}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/* Login */
+.login-container {
+  max-width: 360px;
+  margin: 100px auto;
+  padding: 32px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.login-container h2 { margin-bottom: 20px; }
+.login-container input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 12px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
 }
+.login-container button[type="submit"] {
+  width: 100%;
+  padding: 10px;
+  background: #0084ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.login-container button[type="submit"]:hover { background: #006acc; }
+.link-btn { background: none; border: none; color: #0084ff; cursor: pointer; text-decoration: underline; }
+.error { color: #d32f2f; margin-top: 8px; font-size: 13px; }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* Chat layout */
+.chat-container { display: flex; height: 100vh; }
+
+.sidebar {
+  width: 220px;
+  background: #1a1a2e;
+  color: #fff;
+  padding: 16px;
   display: flex;
   flex-direction: column;
+}
+.sidebar-header {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid #333;
 }
+.sidebar-header button {
+  background: #444;
+  color: #fff;
+  border: none;
+  padding: 4px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+}
+.sidebar h3 { margin-bottom: 8px; font-size: 13px; text-transform: uppercase; color: #888; }
+.room-btn {
+  display: block;
+  width: 100%;
+  text-align: left;
+  padding: 8px 12px;
+  margin-bottom: 4px;
+  background: transparent;
+  color: #ccc;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.room-btn:hover { background: #2a2a4a; }
+.room-btn.active { background: #0084ff; color: #fff; }
 
-.App-link {
-  color: #61dafb;
-}
+/* Chat main */
+.chat-main { flex: 1; display: flex; flex-direction: column; }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.messages {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
 }
+.message {
+  margin-bottom: 12px;
+  padding: 8px 12px;
+  background: #fff;
+  border-radius: 6px;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+}
+.message.bot { background: #e8f5e9; border-left: 3px solid #4caf50; }
+.message strong { margin-right: 8px; }
+.message .time { font-size: 11px; color: #999; }
+.message p { margin-top: 4px; }
+
+.message-input {
+  display: flex;
+  padding: 12px 20px;
+  background: #fff;
+  border-top: 1px solid #e0e0e0;
+}
+.message-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  margin-right: 8px;
+}
+.message-input button {
+  padding: 10px 20px;
+  background: #0084ff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.message-input button:hover { background: #006acc; }
