@@ -33,8 +33,10 @@ from an API using a specific command.
 ---
 
 ## Step-by-step setup
+Make sure theres an instance of rabbitmq is running locally
 
 ### Option A: start-script (recommended for easy setup)
+make sure docker daemon is running in your local
 
 #### On mac:
 1. Open up terminal
@@ -79,6 +81,7 @@ Then open two browser tabs at http://localhost:3000, register two different user
 ---
 
 ### Option C: Docker (full stack installer)
+Make sure docker daemon is running in your local
 
 ```bash
 docker compose up --build
