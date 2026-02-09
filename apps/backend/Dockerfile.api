@@ -1,0 +1,17 @@
+FROM mcr.microsoft.com/dotnet/sdk:10.0-preview AS build
+WORKDIR /src
+
+COPY ChatApp.Domain/ChatApp.Domain.csproj ChatApp.Domain/
+COPY ChatApp.Infrastructure/ChatApp.Infrastructure.csproj ChatApp.Infrastructure/
+COPY ChatApp.Api/ChatApp.Api.csproj ChatApp.Api/
+RUN dotnet restore ChatApp.Api/ChatApp.Api.csproj
+
+COPY . .
+RUN dotnet publish ChatApp.Api/ChatApp.Api.csproj -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-preview
+WORKDIR /app
+COPY --from=build /app/publish .
+EXPOSE 5006
+ENV ASPNETCORE_URLS=http://+:5006
+ENTRYPOINT ["dotnet", "ChatApp.Api.dll"]

@@ -1,0 +1,55 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    volumes:
+      - rabbitmq_data:/var/lib/rabbitmq
+    healthcheck:
+      test: rabbitmq-diagnostics -q ping
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  api:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile.api
+    ports:
+      - "5006:5006"
+    environment:
+      ConnectionStrings__DefaultConnection: "Data Source=/app/data/chatapp.db"
+      Jwt__Key: "62JvUqArWfuK0BbLo9Ln1hoEAvQKwpUK"
+      Jwt__Issuer: "ChatApp"
+      Jwt__Audience: "ChatApp"
+      RabbitMQ__HostName: "rabbitmq"
+      RabbitMQ__Port: "5672"
+      RabbitMQ__UserName: "guest"
+      RabbitMQ__Password: "guest"
+      Frontend__Url: "http://localhost:3000"
+    volumes:
+      - api_data:/app/data
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+  bot:
+    build:
+      context: ./apps/backend
+      dockerfile: Dockerfile.bot
+    environment:
+      RabbitMQ__HostName: "rabbitmq"
+      RabbitMQ__Port: "5672"
+      RabbitMQ__UserName: "guest"
+      RabbitMQ__Password: "guest"
+    depends_on:
+      rabbitmq:
+        condition: service_healthy
+
+volumes:
+  rabbitmq_data:
+  api_data:

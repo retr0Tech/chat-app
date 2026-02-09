@@ -1,0 +1,15 @@
+FROM mcr.microsoft.com/dotnet/sdk:10.0-preview AS build
+WORKDIR /src
+
+COPY ChatApp.Domain/ChatApp.Domain.csproj ChatApp.Domain/
+COPY ChatApp.Infrastructure/ChatApp.Infrastructure.csproj ChatApp.Infrastructure/
+COPY ChatApp.Bot/ChatApp.Bot.csproj ChatApp.Bot/
+RUN dotnet restore ChatApp.Bot/ChatApp.Bot.csproj
+
+COPY . .
+RUN dotnet publish ChatApp.Bot/ChatApp.Bot.csproj -c Release -o /app/publish
+
+FROM mcr.microsoft.com/dotnet/aspnet:10.0-preview
+WORKDIR /app
+COPY --from=build /app/publish .
+ENTRYPOINT ["dotnet", "ChatApp.Bot.dll"]
