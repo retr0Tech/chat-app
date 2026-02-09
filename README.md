@@ -5,6 +5,32 @@ This application allows several users to talk in a chatroom and also to get stoc
 from an API using a specific command.
 
 ---
+### Tech stack
+##### Backend
+		- .NET 10 (preview) — runtime and SDK                                                                                                           
+		- ASP.NET Core                                           
+		- SignalR                                                                                                 
+		- ASP.NET Identity               
+		- JWT Bearer
+		- Entity Framework Core
+		- SQLite
+		- RabbitMQ.Client 7.2
+		- CsvHelper 33.1
+
+##### Frontend
+		- Reactjs
+		- React Router
+		- @microsoft/signalr 10
+
+##### Infrastructure
+		- RabbitMQ 3
+		- Docker / Docker Compose
+
+##### Testing
+		- xUnit 2.9
+		- Moq 4.20
+
+---
 
 ## Step-by-step setup
 
