@@ -40,13 +40,13 @@ make sure docker daemon is running in your local
 
 #### On mac:
 1. Open up terminal
-2. cd scripts
-3. run ./start-dev.sh
+2. cd path-to-project-directory/scripts
+3. Then run ./start-dev.sh
 
 #### On Windows
 1. Open up Bash terminal
-2. cd scripts
-3. run ./start-dev.sh
+2. cd path-to-project-directory/scripts
+3. Then run ./start-dev.sh
 
 Then open two browser tabs at http://localhost:3000, register two different users, and start chatting. Type `/stock=aapl.us` to test the bot.
 
